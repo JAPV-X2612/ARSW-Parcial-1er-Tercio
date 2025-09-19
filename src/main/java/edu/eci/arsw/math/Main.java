@@ -1,5 +1,7 @@
 package edu.eci.arsw.math;
 
+import java.io.IOException;
+
 /**
  * Main function that executes a parallel solution for the BBP Formula
  * 
@@ -9,13 +11,13 @@ package edu.eci.arsw.math;
  */
 public class Main {
 
-    public static void main(String args[]) {
+    public static void main(String args[]) throws InterruptedException, IOException {
         System.out.println();
-        System.out.println(bytesToHex(PiDigits.getDigits(0, 10)));
+        System.out.println(bytesToHex(PiDigits.getDigits(0, 10, 2)));
         System.out.println();
-        System.out.println(bytesToHex(PiDigits.getDigits(1, 100)));
+        System.out.println(bytesToHex(PiDigits.getDigits(1, 100, 2)));
         System.out.println();
-        System.out.println(bytesToHex(PiDigits.getDigits(1, 1000)));
+        System.out.println(bytesToHex(PiDigits.getDigits(1, 1000, 2)));
         System.out.println();
     }
 

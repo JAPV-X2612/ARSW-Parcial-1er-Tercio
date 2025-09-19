@@ -1,8 +1,7 @@
 
-### Escuela Colombiana de Ingeniería
-### Arquitecturas de Software - ARSW
-## Ejercicio Fórmula BBP - Parcial Practico
-
+# Escuela Colombiana de Ingeniería
+## Arquitecturas de Software - ARSW
+### Ejercicio Fórmula BBP - Parcial Practico
 
 **Ejercicio Fórmula BBP**
 
