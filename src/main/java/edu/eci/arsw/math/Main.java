@@ -1,22 +1,22 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package edu.eci.arsw.math;
 
-import java.util.Arrays;
-
 /**
- *
- * @author hcadavid
+ * Main function that executes a parallel solution for the BBP Formula
+ * 
+ * @author Jesús Pinzón
+ * @version 1.0
+ * @since 2025-09-19
  */
 public class Main {
 
-    public static void main(String a[]) {
+    public static void main(String args[]) {
+        System.out.println();
         System.out.println(bytesToHex(PiDigits.getDigits(0, 10)));
+        System.out.println();
         System.out.println(bytesToHex(PiDigits.getDigits(1, 100)));
-        System.out.println(bytesToHex(PiDigits.getDigits(1, 1000000)));
+        System.out.println();
+        System.out.println(bytesToHex(PiDigits.getDigits(1, 1000)));
+        System.out.println();
     }
 
     private final static char[] hexArray = "0123456789ABCDEF".toCharArray();
@@ -28,9 +28,9 @@ public class Main {
             hexChars[j * 2] = hexArray[v >>> 4];
             hexChars[j * 2 + 1] = hexArray[v & 0x0F];
         }
-        StringBuilder sb=new StringBuilder();
+        StringBuilder sb = new StringBuilder();
         for (int i=0;i<hexChars.length;i=i+2){
-            //sb.append(hexChars[i]);
+            // sb.append(hexChars[i]);
             sb.append(hexChars[i+1]);            
         }
         return sb.toString();

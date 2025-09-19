@@ -1,22 +1,24 @@
 package edu.eci.arsw.math;
 
-///  <summary>
-///  An implementation of the Bailey-Borwein-Plouffe formula for calculating hexadecimal
-///  digits of pi.
-///  https://en.wikipedia.org/wiki/Bailey%E2%80%93Borwein%E2%80%93Plouffe_formula
-///  *** Translated from C# code: https://github.com/mmoroney/DigitsOfPi ***
-///  </summary>
+/**
+ * Main class that implements a parallel solution for the BBP Formula
+ * Resource: https://en.wikipedia.org/wiki/Bailey%E2%80%93Borwein%E2%80%93Plouffe_formula
+ * 
+ * @author Jesús Pinzón
+ * @version 1.0
+ * @since 2025-09-19
+ */
 public class PiDigits {
 
-    private static int DigitsPerSum = 8;
-    private static double Epsilon = 1e-17;
-
+    private static final int digitsPerSum = 8;
+    private static final double epsilon = 1e-17;
     
     /**
-     * Returns a range of hexadecimal digits of pi.
-     * @param start The starting location of the range.
+     * Returns a range of hexadecimal digits of pi
+     * 
+     * @param start The starting location of the range
      * @param count The number of digits to return
-     * @return An array containing the hexadecimal digits.
+     * @return An array containing the hexadecimal digits
      */
     public static byte[] getDigits(int start, int count) {
         if (start < 0) {
@@ -31,13 +33,13 @@ public class PiDigits {
         double sum = 0;
 
         for (int i = 0; i < count; i++) {
-            if (i % DigitsPerSum == 0) {
+            if (i % digitsPerSum == 0) {
                 sum = 4 * sum(1, start)
                         - 2 * sum(4, start)
                         - sum(5, start)
                         - sum(6, start);
 
-                start += DigitsPerSum;
+                start += digitsPerSum;
             }
 
             sum = 16 * (sum - Math.floor(sum));
@@ -47,12 +49,13 @@ public class PiDigits {
         return digits;
     }
 
-    /// <summary>
-    /// Returns the sum of 16^(n - k)/(8 * k + m) from 0 to k.
-    /// </summary>
-    /// <param name="m"></param>
-    /// <param name="n"></param>
-    /// <returns></returns>
+    /**
+     * Calculates the sum of 16^(n - k)/(8 * k + m) from 0 to k
+     * 
+     * @param m Up bound
+     * @param n Low bound
+     * @return Return the sum of 16^(n - k)/(8 * k + m) from 0 to k
+     */
     private static double sum(int m, int n) {
         double sum = 0;
         int d = m;
@@ -65,7 +68,7 @@ public class PiDigits {
                 term = (double) hexExponentModulo(power, d) / d;
             } else {
                 term = Math.pow(16, power) / d;
-                if (term < Epsilon) {
+                if (term < epsilon) {
                     break;
                 }
             }
